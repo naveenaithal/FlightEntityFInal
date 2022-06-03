@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head style="text-align: center">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ 
+</head>
+
+<body>
+
+  <div class="login">
+    <h2 class="login-header">Login Here</h2>
+    <form #authForm="ngForm">
+      <div class="row">
+        <div>
+
+          <form>
+            <div class="input-group mb-3 email">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1" style="height: 34px;"><i class="fa fa-user fa-2x"
+                    style="color:rgb(49, 46, 46)" aria-hidden=" true"></i></span>
+              </div>
+              <input type="email" id="email" class="form-control" [(ngModel)]="loginData.email" name="email" required
+                placeholder="EmailId" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            </div>
+
+            <div>
+              <div class="input-group mb-3 password">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1" style="height: 34px;"><i class="fa fa-lock fa-2x"
+                      style="color:rgb(49, 46, 46)" aria-hidden="true"></i></span>
+                </div>
+
+                <input type="password" id="password" class="form-control" [(ngModel)]="loginData.password"
+                  name="password" placeholder="Password" required #password="ngModel" minlength="7">
+              </div>
+            </div>
+
+
+            <!-- <p>
+              <input type="radio" value="vendor" name="login" [(ngModel)]="loginData.gender"> Vendor
+              <input type="radio" value="employee" name="login" [(ngModel)]="loginData.gender"> Employee
+            </p> -->
+
+            <div>
+              <input type="radio" class="form-check-input rb1" value="Admin" type="radio" name="login" id="Admin"
+                [(ngModel)]="loginData.user">
+              <label class="form-check-label" for="vAdminendor">
+                Admin
+              </label>
+
+              <input type="radio" class="form-check-input rb2" value="Customer" name="login" id="Customer"
+                [(ngModel)]="loginData.user">
+              <label class="form-check-label" for="Customer">
+                Customer
+              </label>
+            </div>
+
+            <div>
+              <button class="btn button1" type="button" (click)="login()">Login</button>
+            </div>
+            <!-- <a style="text-decoration: none ;" routerLink="forgotPassword" routerLinkActive="active">Forgot password?</a> -->
+           
+            <!-- <a style="text-decoration: none ;" routerLink="forgotPassword" routerLinkActive="active">Forgot password?</a> -->
+            <!-- <button class="registerVen" (click)="registerVendor()">Vendor Register
+            </button> -->
+
+            <br>
+
+          </form>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
+
+</body>
+
+</html>
