@@ -20,7 +20,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatSelectModule} from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select'
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,9 @@ import {MatSelectModule} from '@angular/material/select'
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    HttpClientModule
 
 
   ],

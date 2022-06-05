@@ -1,28 +1,74 @@
 <div *ngIf="isFirstPage">
-    <p>First Page</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-     Totam expedita repudiandae explicabo ipsam amet natus aspernatur
-      reprehenderit ducimus excepturi sit.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-     Totam expedita repudiandae explicabo ipsam amet natus aspernatur
-      reprehenderit ducimus excepturi sit.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-     Totam expedita repudiandae explicabo ipsam amet natus aspernatur
-      reprehenderit ducimus excepturi sit.</p>
+ <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="flightId">
+    <th mat-header-cell *matHeaderCellDef> Fkight Id. </th>
+    <td mat-cell *matCellDef="let element"> {{element.flightId}} </td>
+  </ng-container>
+  
+      <ng-container matColumnDef="flightNumber">
+      <th mat-header-cell *matHeaderCellDef> Flight Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.flightNumber}} </td>
+      </ng-container>
+      <ng-container matColumnDef="airlineName"> 
+      <th mat-header-cell *matHeaderCellDef>Airline Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.airlineName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fromPlace">
+      <th mat-header-cell *matHeaderCellDef> From   </th>
+      <td mat-cell *matCellDef="let element"> {{element.fromPlace}} </td>
+      </ng-container>
+      <ng-container matColumnDef="toPlace">
+      <th mat-header-cell *matHeaderCellDef>  TO </th>
+      <td mat-cell *matCellDef="let element"> {{element.toPlace}} </td>
+      </ng-container>
+      <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> Start Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef>  End date </th>
+      <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="scheduledDays">
+      <th mat-header-cell *matHeaderCellDef>  scheduledDays  </th>
+      <td mat-cell *matCellDef="let element"> {{element.scheduledDays}} </td>
+      </ng-container>
+      
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
 </div>
 
 <div *ngIf="isSecondPage">
     
-<p>Second Page</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-     Totam expedita repudiandae explicabo ipsam amet natus aspernatur
-      reprehenderit ducimus excepturi sit.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-     Totam expedita repudiandae explicabo ipsam amet natus aspernatur
-      reprehenderit ducimus excepturi sit.</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-     Totam expedita repudiandae explicabo ipsam amet natus aspernatur
-      reprehenderit ducimus excepturi sit.</p>
+<table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
+  <ng-container matColumnDef="airlineId">
+    <th mat-header-cell *matHeaderCellDef> airlineId  </th>
+    <td mat-cell *matCellDef="let element"> {{element.airlineId}} </td>
+  </ng-container>
+  
+      <ng-container matColumnDef="airlineName">
+      <th mat-header-cell *matHeaderCellDef> airlineName  </th>
+      <td mat-cell *matCellDef="let element"> {{element.airlineName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="contactNumber">
+      <th mat-header-cell *matHeaderCellDef>contactNumber </th>
+      <td mat-cell *matCellDef="let element"> {{element.contactNumber}} </td>
+      </ng-container>
+      <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> address   </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>  status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+    
+      
+  <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+</table>
+
 </div>
 
 <div *ngIf="isThirdPage">
@@ -37,4 +83,182 @@
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
      Totam expedita repudiandae explicabo ipsam amet natus aspernatur
       reprehenderit ducimus excepturi sit.</p>
+</div>
+
+<div *ngIf="isFourthPage" style="text-align:center; padding:20px">
+<h1>Ticket Booking</h1>
+<div class="row">
+      <div class="col">
+            <mat-label>Seat Number</mat-label>
+            <input class="form-control" type="number" name="seatNum" [(ngModel)]="bookingDetails.seatNumbers">
+      </div>
+      <div class="col">
+            <mat-label>Flight  id</mat-label>
+            <input class="form-control" type="number" name="Fid" [(ngModel)]="bookingDetails.Fid">
+      </div>
+</div>
+
+<div class="row">
+      <div class="col">
+            <mat-label>Number of Tickets</mat-label>
+            <input class="form-control" type="number" [(ngModel)]="bookingDetails.bookedSeats" />
+      </div>
+      <div class="col">
+            <mat-label>Name</mat-label>
+            <input class="form-control" type="text" [(ngModel)]="bookingDetails.name" />
+      </div>
+</div>
+
+<div class="row">
+      <div class="col">
+     
+            <mat-label>Email</mat-label>
+            <input class="form-control" type="email" [(ngModel)]="bookingDetails.email" />
+      </div>
+      <div class="col">
+            <mat-label>Gender</mat-label>
+            <input class="form-control" type="text" name="gender" [(ngModel)]="bookingDetails.gender">
+      </div>
+   
+</div>
+<div class="row">
+         <div class="col">
+            <mat-label>Age</mat-label>
+            <input class="form-control" type="number" name="age" [(ngModel)]="bookingDetails.age">
+      </div>
+      <div class="col">
+            <mat-label>Meal</mat-label>
+            <input class="form-control" type="text" name="meal" [(ngModel)]="bookingDetails.meal">
+      </div>
+</div>
+
+<button mat-raised-button color="primary" style="margin-top:10px ;" (click)="bookFlight()">Submit</button>
+</div>
+
+
+<div *ngIf="isFifthPage">
+
+<div class="row" style="padding:20px"><div class="col">
+      <mat-label>Enter Your PNR Number</mat-label>
+      <input class="form-control" type="text" [(ngModel)]="pnrNumber" name="pnrNumber" />
+      <button class="btn btn-primary" style="margin-top:10px" (click)="searchTicket()">Search</button>
+</div></div>
+
+
+<div class="container" *ngIf="isTicket">
+<table mat-table [dataSource]="dataSource3" class="mat-elevation-z8">
+  <ng-container matColumnDef="pnr">
+    <th mat-header-cell *matHeaderCellDef> PNR  </th>
+    <td mat-cell *matCellDef="let element"> {{element.pnr}} </td>
+  </ng-container>
+  
+      <ng-container matColumnDef="flightId">
+      <th mat-header-cell *matHeaderCellDef> Flight Id  </th>
+      <td mat-cell *matCellDef="let element"> {{element.flightId}} </td>
+      </ng-container>
+      <ng-container matColumnDef="bookedSeats">
+      <th mat-header-cell *matHeaderCellDef>Booked seats </th>
+      <td mat-cell *matCellDef="let element"> {{element.bookedSeats}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name   </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>  email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>  gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+      <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef>  age </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+      </ng-container>
+      <ng-container matColumnDef="meal">
+      <th mat-header-cell *matHeaderCellDef>  meal </th>
+      <td mat-cell *matCellDef="let element"> {{element.meal}} </td>
+      </ng-container>
+      <ng-container matColumnDef="seatNumbers">
+      <th mat-header-cell *matHeaderCellDef>  Seat Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.seatNumbers}} </td>
+      </ng-container>
+    
+      
+  <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+</table>
+
+
+    
+</div>
+
+</div>
+
+<div *ngIf="isSixthPage">
+      
+<div class="row" style="padding:20px"><div class="col">
+      <mat-label>Enter Rmail adress</mat-label>
+      <input class="form-control" type="text" [(ngModel)]="emailAdress" name="emailAdress" />
+      <button class="btn btn-primary" style="margin-top:10px" (click)="ticketHistory()">Search</button>
+</div></div>
+<div class="container" *ngIf="isTicket">
+<table mat-table [dataSource]="dataSource3" class="mat-elevation-z8">
+  <ng-container matColumnDef="pnr">
+    <th mat-header-cell *matHeaderCellDef> PNR  </th>
+    <td mat-cell *matCellDef="let element"> {{element.pnr}} </td>
+  </ng-container>
+  
+      <ng-container matColumnDef="flightId">
+      <th mat-header-cell *matHeaderCellDef> Flight Id  </th>
+      <td mat-cell *matCellDef="let element"> {{element.flightId}} </td>
+      </ng-container>
+      <ng-container matColumnDef="bookedSeats">
+      <th mat-header-cell *matHeaderCellDef>Booked seats </th>
+      <td mat-cell *matCellDef="let element"> {{element.bookedSeats}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name   </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>  email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>  gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+      <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef>  age </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+      </ng-container>
+      <ng-container matColumnDef="meal">
+      <th mat-header-cell *matHeaderCellDef>  meal </th>
+      <td mat-cell *matCellDef="let element"> {{element.meal}} </td>
+      </ng-container>
+      <ng-container matColumnDef="seatNumbers">
+      <th mat-header-cell *matHeaderCellDef>  Seat Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.seatNumbers}} </td>
+      </ng-container>
+    
+      
+  <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+</table>
+
+
+    
+</div>
+
+</div>
+
+<div *ngIf="isSeventhPage">
+  <div class="row" style="padding:20px"><div class="col">
+      <mat-label>Enter PNR Number</mat-label>
+      <input class="form-control" type="text" [(ngModel)]="pnrNumber" name="pnrNumber" />
+      <button class="btn btn-primary" style="margin-top:10px" (click)="ticketHistory()">Search</button>
+</div></div>    
+
 </div>

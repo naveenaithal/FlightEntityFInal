@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-admin-home-page',
@@ -8,23 +9,47 @@ import { Component, OnInit } from '@angular/core';
 export class AdminHomePageComponent implements OnInit {
   displayStyle = "none"
   airlineRegdisplayStyle = "none"
+  flightDetails:any = {}
+  airlineDetails:any={}
   
 
-  constructor() { }
+  constructor(private _admin:AdminService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
    
   }
 
   addFlightPopup() {
     this.displayStyle = "block"
+    
 
     
   }
   registerAirline() {
-    this.airlineRegdisplayStyle="block"
+    this.airlineRegdisplayStyle = "block"
+    
 }
 
+  
+  submitFlightDetails() {
+    console.log(this.flightDetails);   
+    // this._admin.registerFlight(this.flightDetails).subscribe(
+    //   (res) => {
+    //     console.log(res)
+    //     this.displayStyle = "block"
+    //   })
+  }
+
+  submitAirlinRegistrarionDetails() {
+    console.log(this.airlineDetails);
+    // this._admin.registerAirline(this.airlineDetails).subscribe(
+    //   (res) => {  
+    //     console.log(res)
+        
+    //     this.airlineRegdisplayStyle = "block"
+    //   })
+    
+  }
 
 
   closeAddFlightPopup() {
@@ -32,5 +57,9 @@ export class AdminHomePageComponent implements OnInit {
      this.airlineRegdisplayStyle="none"
     
   }
+
+
+
+
 
 }
